@@ -69,13 +69,14 @@ jobs:
         BUILD_OPTS: "-bt mvn"
 
     - name: Debricked Scan
-        jobs: 
-            vulnerabilites-scan:
-            runs-on: unbunt-latest 
-            steps:
+      on: [push,pull_request]
+      jobs: 
+        vulnerabilites-scan:
+          runs-on: unbunt-latest 
+          steps:
             -uses: actions/checkout@v2
             -uses: debricked/actions/scan@v1
-              env:
+             env:
                 DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
         
       
