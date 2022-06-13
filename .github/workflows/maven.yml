@@ -67,15 +67,4 @@ jobs:
         APPLICATION: "simplisticrabbitmq_sc"
         VERSION: "3.0"
         BUILD_OPTS: "-bt mvn"
-
-    - name: Debricked Scan
-      on: [push, pull_request]
-      jobs: 
-        vulnerabilites-scan:
-          runs-on: unbunt-latest
-          steps:
-          -uses: actions/checkout@v2
-          #-uses: debricked/actions/scan@v1
-          env:
-           DEBRICKED_TOKEN: ${{secrets.DEBRICKED_TOKEN}}
   
